@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0b0b0d" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-title" content="FitPlan" />
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAALrUlEQVR4nO3de2yV9R3H8c9zOafn0lIspTcrtKLjonIpAVHZqjiczsucJkydc7plGZpd3JJt4uKSLVOTuf2hxMWFxG2ZUzajUwfGW5QNNkSxZaRaEGhByqWFlpb2tOf2PM/+OIAFS9tznuec3+/59fNKDAmG9kn77re/53J+R4MknFVwRB8D5U57FJroYwAg7iAYsNpEBV7QT8qIJ6ZCxp33T8SIabh8x523D86QaTT5CtvzD8qQKRteh617+cEYM2XL62Y8+elgyOQFL6a16wnNmMkrXrTkKmjGTF5z21ROI54hUyHksgTJekIzZiqUXFrLKmjGTIWWbXPjDpoxkyjZtOfpdWgi0cYVNKcziTbeBscMmjGTLMbT4qhBM2aSzVhNcg1NSjlr0JzOJKvR2hwxaMZMsjtbo1xykFI+EzSnM/nFSK1yQpNSTgua05n85sxmOaFJKQyalHIqaC43yK+Gt8sJTUph0KQUHeByg/zvZMOc0KQUBk1KYdCkFI3rZ1IJJzQphUGTUhg0KYVBk1IYNCmFQZNSGDQphUGTUhg0KYVBk1IYNCmFQZNSGDQphUGTUhg0KYVBk1IYNCmFQZNSGDQphUGTUkzRB0C5iaU0bO3U0dptYEePjk+Oa+ga0tA1qCOWApKWhoQFBHQgbDoIm0DoxJ8lQQdVUQc1URvVxQ5qog5qim3UlTo4r8TO/h3jJSJN0A9uKsITTUHRh5GTD++OYfokO++fp7Vbx4u7Anhjn4H/HTGQHsenTFhAwtLQmwAwjlSjAQezy2zMnmKf+nN+hYWpYX9sDiBN0DSylA28uCuA1c0BbOsy8v75MpPfwNbO0z9XfamNJdUWLq22sKTawpwpNnQJRzmDlti6NhOrNhahvU/8qU57n472Ph3P7QgAyCxbmr4RQ3VUrsnNoCXUm9Bw31shvLJH3m9Pf1JD0tIAyfYpkvcrNkF91K3j1lfC2N8vfir7EYOWyNZOAze/FEZvQsLFqU9wDEiivU/HLS8zZrcYtAQSFrBiXRg9ccbsFoOWwMPvFqG1m98KL/CrKNi+4zpWN/vzhpKMGLRgv9saRCr/NxknDF7lECiW0rB2h3ffgjlTbDTWprGgwkZdqY3aEgfFAQdh00GRAcQtDfE00D2k4XBMw4EBHTuP6djZo6O5S1fiUiGDFuife0wMpt2dCGoA7pyTwg8bkphVNvqoj5gOIiZQFnJw4TkAYJ32/7sGNWw5ZOCd/SY27Dfw8TH/Ba5U0FeeZ2HdVwdFH8a4vbnP3bMZxUEHf742ji/VpT05noqIgxtnpHHjjMzHa+/T8fIeE6/sNvHe4fw/R+IF//0IKmTzQXeRPLnMu5hHUl9q4/6GJN5eMYjtd8Xws0VJnFci94KfQQtyPKnhExdr1gUVFm79XP5iPtP5k208dFkCLXfH8Nz1Q2istaBJeNlcqSWHn7T1upslN19QuJiHMzSctiyRDSe0IAdj7sZbXQFeUOBHDFqQwZS7fx/wxzlawTFoQYZcXq7b5cNLaoXAr4ogAZdf+b/vDMCW69l6KTBoQSIBdzV+2K3jN+/zGZAzMWhBaordj9dfv1uEH20IoT8p4fUzQRi0IPUeXaVYsz2AOX+K4ueb+AgqwOvQwkwJO5hWYru6uXLSsbiGx5uCeLwpiPpSG1+cbuHymsx2A7Lf2fMagxZoaa2FZ1u9nartfTrWbNexZntmu4GpYQcNlRYaKmwsqLTQUGGhSrKtB7ykVNAb9hsofqKkYJ/vqeVx3Dk79wvKN5yfxrOtAQ+P6LOODGl4fa+J1/d++nfV0Uzki6osLK6ysLDSRtTlSaoslArab66rT6Mq6uCwy7uG2ToU07C+zcT6tsy339SBhZUWrp5m4Zq6NBZWWr7d345nEQIFdOC++UnRh4G0DWw5ZOCRLUFc+bcIZv+xGKs2+vMk039HrJj75icLstFjNjr6NaxuDmLRX6O4+vkI1reZku2PdHYMWrCQAfxheVzKjQ+BzOT+2rowrnguio0d8j9AwqAlsPRcCw8vTYg+jFFtP6LjuhcjWPlmCAMS38hh0JL4/oIkHrxU/Hp6LM+0BnDF2ojr57nzRc6jmqAevDSB1cviKJL8N/ueXh1XPR+R8kW08h3RBHfPxSm8syKGS8rlOlE8U/eQhpteiqB7SK7lB4OW0NypNjbdHsNvGxOoiMh7faGjX8O9b4VEH8ZpGLSkDA1YOS+JlrtjeKwxgRmT5ZzYr7abeLVdnvtzDFpyEdPBvfOS2HZXDOtvGcRdc1KYXCTX1P7V5iLRh3CKPD9aNCoNQGOthcZaC6uvzlwffnOfiY0dBpq7DCSsMT9E3rQc1fHfgwYurxF4ECcoFbTfdk7KlaEBl9dYpwJKWEBzl4Ethz79r3OwsCdrL+wyGTR5o8gAlpx4u7WT9h3XM3Ef1rH5oImWo3peX4P4xl4TaBR/c4hBK2r6JBvTJ9lYMRMAEuhNaNiw38D6NhPr2kzPX7bV3qejJ66hLCR2fc+TwglicpGDmy9IY801cbR/ZwBPLY9j5hi7lWbrw6PicxJ/BFRwIQO4c3YKW+6I4ReXJTx79lmG/aXFHwEJY+rATxcl8csrvFn7HpHgriGDJtzfkMTFHtxqH5Jg/0YGTdA14PZZLjfbA2A7nNAkiUVV7q8hh03xdzAZNAGAJ5fbIhJcBGbQAn379RBe3i3H6/W8eAy0Mir+ASoGLdBH3Qa+/moYn18r/oWoLUfdv6pg2iTxP5oMWgLbujIvRG34SxRPtwQQF/BIxDOt7tYLGoAZpZzQNMyuYzp+8HYIM5/O7Iuxs6cw357VzUE0d7mb0BecY6NUgsdaGbSEuocy+2IsfCazL8aT24Lo6M/PJbHfbwviof+4f555+INRIklwXuqdQu9tN9zObw3gXA/2fD7TycdBH/h3ERoqLSybZqGxNo0lNRZCLobq5oMGHt5ShA37vXlF7vXnS3BXBYoFrTIHwAedBj7oNPDY+0EEDWBWmY255RYuKs88WVdb4qAqYiMayFwTNnRgMKVhIAV09Ov4+FjmPb1fazex97h3v5wnBR0sn86gyYWkldn8ZfsR8avGey5OSbP1gvivBvlayAC+t0CeDXIYNLnyk8UJVEu0gTqDppzNnWrjxwvlmc4Ag6YclYcdrL1hyPX7LXpNssMhPygLOfjHV4YwTcI3JOJVDspK3SQbL9w05PnrEb3CCS3QNy9KYZakYYxkxcwUNt8xKG3MACe0UCvnJbFyXhI7enS8tNvEa+0mmroM6d7De36FhUeWJvCFWjlub4+GQUtgVpmNBxYn8cDiJI4OaXhrn4l/dRjYdMBAe5+YX6KGBlxbn8Z356Zw1bS0b94Vi0FLpjzs4LZZKdx24jV+BwY0vHfIQFOXgaZOAy3det72ZK6MOFhSY+G6+jS+XJ8WvmlMLjRnlRQvmKAs9MQ17OzRsbtXR8eAhgP9Og4OaOiJaziW0NCb0BBPAylbQ8rKvAg2aABBw0FJECgP2ygPOzi32MGMyTYunGzjkqk26iR7N65cMGhSCq9ykFIYNCmFQZNSGDQphUGTUhg0KYVBk1IYNCmFQZNSGDQphUGTUhg0KYVBk1IYNCmFQZNSGDQphUGTUhg0KYVBk1IYNCmFQZNSdO1R3+whQjQq7VFonNCkFAZNSmHQpBQdyKw9RB8IkRsnG+aEJqUwaFLKqaC57CC/Gt4uJzQphUGTUk4LmssO8pszm+WEJqV8JmhOafKLkVrlhCaljBg0pzTJ7myNnnVCM2qS1WhtcslBShk1aE5pks1YTY45oRk1yWI8LY5rycGoSbTxNsg1NCll3EFzSpMo2bSX1YRm1FRo2TaX9ZKDUVOh5NKaqzidVXDc/HuikbgZmq5OCjmtyWtum3J9lYNRk1e8aMnTGLkEoVx4ORQ9vQ7NaU3Z8rqZvAXIaU2jydfwy/tEZdg0XL5/ixd0icC4J6ZCLkWFrXkZt9pEnU9JcxLHwP1NlgsC/wftZX1M+gcg4QAAAABJRU5ErkJggg==" />
+<link rel="icon" type="image/png" href="data:image/png;base64,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" />
+<title>FitPlan · Es Lebe Der Sport</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --bg:#0b0b0d; --surface:#141418; --surface2:#1c1c22; --border:rgba(255,255,255,.08);
+    --text:#f5f5f6; --muted:#9a9aa3; --accent:#ff7900; --accent-soft:rgba(255,121,0,.14);
+    --good:#36c98f; --good-soft:rgba(54,201,143,.14); --track:rgba(255,255,255,.07);
+  }
+  html[data-theme="light"]{
+    --bg:#f4f4f5; --surface:#ffffff; --surface2:#f0f0f2; --border:rgba(0,0,0,.08);
+    --text:#18181b; --muted:#6b6b73; --accent:#ff7900; --accent-soft:rgba(255,121,0,.12);
+    --good:#16a06a; --good-soft:rgba(22,160,106,.12); --track:rgba(0,0,0,.08);
+  }
+  html,body{background:var(--bg);color:var(--text);}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+    -webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased;margin:0;}
+  *{box-sizing:border-box;}
+  .tnum{font-variant-numeric:tabular-nums;}
+  input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+  input[type=number]{-moz-appearance:textfield;}
+  ::-webkit-scrollbar{width:0;height:0;}
+  .fade-in{animation:fade .35s ease both;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.fade-in{animation:none;}}
+  .ring-track{stroke:var(--track);} .ring-fill{stroke:var(--accent);transition:stroke-dashoffset .6s cubic-bezier(.4,0,.2,1);}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useMemo, useRef } = React;
+
+/* ============================ PLAN-DATEN (aus dem 12-Wochen-Plan) ============================ */
+const PLAN = {
+  workouts: {
+    A: { name: "Ganzkörper A", exercises: [
+      { id:"a1", name:"Beinpresse", detail:"kontrollierte Tiefe, kein Durchstrecken", sets:"3", reps:"10–12", pause:"2–3 min" },
+      { id:"a2", name:"Brustpresse (Maschine/KH, neutral)", detail:"Brust", sets:"3", reps:"8–12", pause:"2 min" },
+      { id:"a3", name:"Latzug breit, zur Brust", detail:"Rücken vertikal", sets:"3", reps:"10–12", pause:"2 min" },
+      { id:"a4", name:"Schulterdrücken (sitzend, Rückenlehne)", detail:"entlastet den Nacken", sets:"3", reps:"10–12", pause:"90 s" },
+      { id:"a5", name:"Beinbeuger (liegend/sitzend)", detail:"Hamstrings, keine Kompression", sets:"3", reps:"12–15", pause:"90 s" },
+      { id:"a6", name:"Trizeps-Pushdown + Bizeps-Curl", detail:"Supersatz", sets:"2–3", reps:"12–15", pause:"60 s" },
+      { id:"a7", name:"Core: Pallof Press / Dead Bug", detail:"pro Seite", sets:"2–3", reps:"10–12", pause:"45 s" },
+    ]},
+    B: { name: "Ganzkörper B", exercises: [
+      { id:"b1", name:"Rumänisches Kreuzheben (RDL)", detail:"hüftdominant, Rücken neutral", sets:"3", reps:"8–10", pause:"2–3 min" },
+      { id:"b2", name:"Brustgestütztes Rudern", detail:"Brustpolster entlastet Nacken", sets:"3", reps:"10–12", pause:"2 min" },
+      { id:"b3", name:"Schrägbankdrücken Kurzhantel", detail:"obere Brust", sets:"3", reps:"8–12", pause:"2 min" },
+      { id:"b4", name:"Hip Thrust", detail:"starker Glute-Reiz", sets:"3", reps:"10–12", pause:"2 min" },
+      { id:"b5", name:"Seitheben (KH/Kabel)", detail:"seitliche Schulter", sets:"3", reps:"12–15", pause:"60 s" },
+      { id:"b6", name:"Face Pulls", detail:"hintere Schulter + Haltung/Nacken", sets:"3", reps:"15–20", pause:"60 s" },
+      { id:"b7", name:"Core: Plank / Side Plank", detail:"Sekunden halten", sets:"2–3", reps:"30–45 s", pause:"45 s" },
+    ]},
+    C: { name: "Ganzkörper C", exercises: [
+      { id:"c1", name:"Goblet Box Squat / Hackenschmidt", detail:"Box begrenzt Tiefe = kniefreundlich", sets:"3", reps:"10–12", pause:"2–3 min" },
+      { id:"c2", name:"Brustpresse Maschine / assist. Dips", detail:"Brust", sets:"3", reps:"8–12", pause:"2 min" },
+      { id:"c3", name:"Latzug eng/neutraler Griff", detail:"Rücken", sets:"3", reps:"10–12", pause:"2 min" },
+      { id:"c4", name:"Beinbeuger sitzend", detail:"Hamstrings", sets:"3", reps:"12–15", pause:"90 s" },
+      { id:"c5", name:"Arnold-Press / Masch.-Schulterdrücken", detail:"sitzend", sets:"3", reps:"10–12", pause:"90 s" },
+      { id:"c6", name:"Trizeps-Ext + Bizeps-Hammer", detail:"Supersatz", sets:"2–3", reps:"12–15", pause:"60 s" },
+      { id:"c7", name:"Wadenheben", detail:"Waden", sets:"3", reps:"12–20", pause:"60 s" },
+      { id:"c8", name:"Core: Pallof / Cable Crunch", detail:"ohne Nackenzug", sets:"2–3", reps:"12–15", pause:"45 s" },
+    ]},
+  },
+  warmup: [
+    { id:"w1", label:"Allgemein: 5 min Rad/Crosstrainer (Sattel hoch)" },
+    { id:"w2", label:"Knie: Knie-CARs 5/Seite" },
+    { id:"w3", label:"Knie: Terminal Knee Extension (Band) 2×12" },
+    { id:"w4", label:"Knie: Beinpendel 10/Seite" },
+    { id:"w5", label:"Nacken: Chin Tucks 2×10" },
+    { id:"w6", label:"Nacken: sanfte Rotationen 5/Richtung" },
+    { id:"w7", label:"Nacken: Band Pull-Aparts 2×15" },
+  ],
+  cooldown: [
+    { id:"cd1", label:"3–5 min lockeres Ausradeln/Gehen" },
+    { id:"cd2", label:"Statisch dehnen (je 20–30 s)" },
+    { id:"cd3", label:"5–10 tiefe Zwerchfellatmungen" },
+  ],
+  run: { label:"Zone-2-Lauf, 30–40 min (locker, „Plauderpace")", alt:"Bei Kniereiz: Rad/Crosstrainer/Rudern" },
+  nutrition: {
+    targets:{ kcal:2900, protein:170, fat:80, carbs:375 },
+    meals:[
+      { id:"m1", slot:"Frühstück",      food:"Haferflocken + Magerquark + Beeren + Honig + Walnüsse", kcal:600, p:45, f:18, c:65 },
+      { id:"m2", slot:"Pre-Workout",    food:"Banane + Kaffee", kcal:120, p:3, f:1, c:27 },
+      { id:"m3", slot:"Post-Workout",   food:"Whey + Banane + Reiswaffeln", kcal:330, p:28, f:4, c:45 },
+      { id:"m4", slot:"Mittagessen",    food:"Hühnerbrust + Reis + Gemüse + Olivenöl", kcal:650, p:50, f:18, c:70 },
+      { id:"m5", slot:"Snack",          food:"Skyr + Mandeln + Apfel", kcal:350, p:25, f:16, c:28 },
+      { id:"m6", slot:"Abendessen",     food:"Lachs + Kartoffeln + Salat + Olivenöl", kcal:600, p:35, f:22, c:60 },
+      { id:"m7", slot:"Vor dem Schlaf", food:"Magerquark + Zimt", kcal:150, p:25, f:3, c:8 },
+    ],
+  },
+  supplements:[
+    { id:"creatine", name:"Kreatin-Monohydrat", dose:"3–5 g", note:"Timing egal · täglich · dauerhaft", type:"check" },
+    { id:"whey",     name:"Whey-Protein",       dose:"20–40 g", note:"1–2 Portionen zum Auffüllen", type:"count" },
+    { id:"vitd",     name:"Vitamin D3",          dose:"1.000–2.000 IE", note:"zur fetthaltigen Mahlzeit", type:"check" },
+    { id:"omega3",   name:"Omega-3 (Fischöl)",   dose:"1–2 g EPA+DHA", note:"Gelenke/Herz", type:"check" },
+    { id:"collagen", name:"Kollagen + Vit. C",   dose:"~15 g + 50 mg", note:"30–60 min vor Training (optional)", type:"check" },
+    { id:"caffeine", name:"Koffein",             dose:"3–6 mg/kg", note:"pre-workout (optional)", type:"check" },
+  ],
+};
+
+const BLOCKS = [
+  { from:1, to:3,  name:"Block 1 · Anpassung & Technik", rir:"RIR 3–4" },
+  { from:4, to:4,  name:"Deload", rir:"RIR 4–5" },
+  { from:5, to:7,  name:"Block 2 · Hypertrophie", rir:"RIR 2–3" },
+  { from:8, to:8,  name:"Deload", rir:"RIR 4–5" },
+  { from:9, to:11, name:"Block 3 · Intensivierung", rir:"RIR 1–2" },
+  { from:12,to:12, name:"Test & Deload", rir:"RIR 2–3" },
+];
+const blockFor = (w) => BLOCKS.find(b => w>=b.from && w<=b.to) || BLOCKS[0];
+
+/* ============================ HELPERS ============================ */
+const STORAGE_KEY = "elds_fitplan_v1";
+const pad = (n)=> String(n).padStart(2,"0");
+const toISO = (d)=> `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const todayISO = ()=> toISO(new Date());
+const parseISO = (s)=>{ const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d); };
+const addDays = (iso,n)=>{ const d=parseISO(iso); d.setDate(d.getDate()+n); return toISO(d); };
+const daysBetween = (a,b)=> Math.round((parseISO(b)-parseISO(a))/86400000);
+const WD = ["So","Mo","Di","Mi","Do","Fr","Sa"];
+const fmtDate = (iso)=>{ const d=parseISO(iso); return `${WD[d.getDay()]}, ${d.getDate()}.${d.getMonth()+1}.`; };
+
+function defaultState(){ return { startDate: todayISO(), weekOverride:null, settings:{ theme:"dark", notif:false, lastNotif:null }, days:{} }; }
+function loadState(){ try{ const r=localStorage.getItem(STORAGE_KEY); if(r){ const s=JSON.parse(r); return { ...defaultState(), ...s, settings:{...defaultState().settings, ...(s.settings||{})} }; } }catch(e){} return defaultState(); }
+
+// Standard-Wochenplan: Mo=A, Mi=B, Fr=C, So=Lauf
+function defaultSession(iso){ const d=parseISO(iso).getDay(); return ({1:"A",3:"B",5:"C",0:"run"})[d] || null; }
+function effSession(state, iso){ const o = state.days[iso] && state.days[iso].overrideType; if(o!==undefined && o!==null) return o==="rest"? null : o; return defaultSession(iso); }
+function blankDay(){ return { type:null, ex:{}, done:false, warmup:{}, cooldown:{}, meals:{}, supps:{whey:0}, run:false, overrideType:null }; }
+function getDay(state, iso){ return state.days[iso] || blankDay(); }
+
+function currentWeek(state){
+  if(state.weekOverride) return state.weekOverride;
+  const w = Math.floor(daysBetween(state.startDate, todayISO())/7)+1;
+  return Math.min(12, Math.max(1, w));
+}
+
+/* ============================ UI-PRIMITIVE ============================ */
+const Card = ({children,className="",...p}) => (
+  <div {...p} className={"rounded-3xl border p-4 "+className} style={{background:"var(--surface)",borderColor:"var(--border)"}}>{children}</div>
+);
+const Pill = ({children,tone="accent"}) => (
+  <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{background:tone==="good"?"var(--good-soft)":"var(--accent-soft)",color:tone==="good"?"var(--good)":"var(--accent)"}}>{children}</span>
+);
+
+function Ring({pct,size=130,stroke=12,children}){
+  const r=(size-stroke)/2, c=2*Math.PI*r, off=c*(1-Math.min(1,Math.max(0,pct)));
+  return (
+    <div className="relative inline-flex items-center justify-center" style={{width:size,height:size}}>
+      <svg width={size} height={size} className="-rotate-90">
+        <circle className="ring-track" cx={size/2} cy={size/2} r={r} fill="none" strokeWidth={stroke} strokeLinecap="round"/>
+        <circle className="ring-fill" cx={size/2} cy={size/2} r={r} fill="none" strokeWidth={stroke} strokeLinecap="round" strokeDasharray={c} strokeDashoffset={off}/>
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">{children}</div>
+    </div>
+  );
+}
+
+function CheckButton({checked,onClick,size=28}){
+  return (
+    <button onClick={onClick} aria-pressed={checked}
+      className="shrink-0 rounded-full flex items-center justify-center transition-all active:scale-90"
+      style={{width:size,height:size,border:`2px solid ${checked?"var(--good)":"var(--border)"}`,background:checked?"var(--good)":"transparent"}}>
+      {checked && <svg width={size*.6} height={size*.6} viewBox="0 0 24 24" fill="none" stroke="#0b0b0d" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
+    </button>
+  );
+}
+
+function Bar({label,value,target,unit}){
+  const pct=Math.min(1,target? value/target:0);
+  return (
+    <div>
+      <div className="flex justify-between text-sm mb-1"><span style={{color:"var(--muted)"}}>{label}</span>
+        <span className="tnum font-semibold">{Math.round(value)}<span style={{color:"var(--muted)"}}> / {target}{unit}</span></span></div>
+      <div className="h-2.5 rounded-full overflow-hidden" style={{background:"var(--track)"}}>
+        <div className="h-full rounded-full transition-all" style={{width:`${pct*100}%`,background:"var(--accent)"}}/>
+      </div>
+    </div>
+  );
+}
+
+const Icon = ({name,size=24,active}) => {
+  const col=active?"var(--accent)":"var(--muted)"; const s={width:size,height:size,fill:"none",stroke:col,strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};
+  const paths={
+    home:<><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10"/></>,
+    dumbbell:<><path d="M6.5 6.5l11 11"/><path d="M4 9l-1.5 1.5a2.1 2.1 0 003 3L7 12"/><path d="M20 15l1.5-1.5a2.1 2.1 0 00-3-3L17 12"/><path d="M9 4L7.5 5.5"/><path d="M16.5 18.5L15 20"/></>,
+    chart:<><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></>,
+    fork:<><path d="M6 3v7a2 2 0 002 2 2 2 0 002-2V3"/><path d="M8 12v9"/><path d="M16 3c-1.5 1-2 3-2 5s.5 3 2 4v9"/></>,
+    pill:<><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(45 12 12)"/></>,
+  };
+  return <svg viewBox="0 0 24 24" style={s}>{paths[name]}</svg>;
+};
+
+/* ============================ LINE CHART (SVG) ============================ */
+function LineChart({points}){
+  if(points.length<1) return <div className="text-sm py-8 text-center" style={{color:"var(--muted)"}}>Noch keine Daten – trag Gewichte im Training ein.</div>;
+  const W=320,H=140,P=24;
+  const ys=points.map(p=>p.y), min=Math.min(...ys), max=Math.max(...ys);
+  const span=(max-min)||1;
+  const X=(i)=> points.length===1? W/2 : P+(i*(W-2*P))/(points.length-1);
+  const Y=(v)=> H-P-((v-min)/span)*(H-2*P);
+  const path=points.map((p,i)=>`${i===0?"M":"L"}${X(i)},${Y(p.y)}`).join(" ");
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full">
+      <line x1={P} y1={H-P} x2={W-P} y2={H-P} stroke="var(--border)"/>
+      <path d={path} fill="none" stroke="var(--accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      {points.map((p,i)=><circle key={i} cx={X(i)} cy={Y(p.y)} r="3.5" fill="var(--accent)"/>)}
+      <text x={P} y={14} fontSize="11" fill="var(--muted)">{max} kg</text>
+      <text x={P} y={H-P+16} fontSize="11" fill="var(--muted)">{min} kg</text>
+    </svg>
+  );
+}
+
+/* ============================ APP ============================ */
+function App(){
+  const [state,setState]=useState(loadState);
+  const [tab,setTab]=useState("home");
+  const iso=todayISO();
+
+  useEffect(()=>{ try{ localStorage.setItem(STORAGE_KEY,JSON.stringify(state)); }catch(e){} },[state]);
+  useEffect(()=>{ document.documentElement.setAttribute("data-theme",state.settings.theme); },[state.settings.theme]);
+
+  // Update-Helfer für einen Tag
+  const update=(fn)=> setState(s=>{ const ns=structuredCloneSafe(s); fn(ns); return ns; });
+  const updDay=(dayIso,fn)=> update(s=>{ if(!s.days[dayIso]) s.days[dayIso]=blankDay(); fn(s.days[dayIso],s); });
+
+  const week=currentWeek(state); const block=blockFor(week);
+  const session=effSession(state,iso);
+
+  // verpasste Einheiten (letzte 21 Tage)
+  const missed=useMemo(()=>{ const out=[]; for(let i=21;i>=1;i--){ const d=addDays(iso,-i); if(daysBetween(state.startDate,d)<0) continue; const ses=effSession(state,d); if(!ses) continue; const day=state.days[d]; const done=ses==="run"? (day&&day.run):(day&&day.done); if(!done) out.push({date:d,type:ses}); } return out; },[state,iso]);
+
+  // Tages-Score fürs Dashboard
+  const day=getDay(state,iso);
+  const dayScore=useMemo(()=>{
+    const items=[];
+    if(session==="run"){ items.push(day.run); }
+    else if(session){ items.push(day.done); items.push(PLAN.warmup.every(w=>day.warmup[w.id])); }
+    items.push(["m1","m4","m6"].every(m=>day.meals[m])); // 3 Hauptmahlzeiten
+    items.push(!!day.supps.creatine);
+    const done=items.filter(Boolean).length; return items.length? done/items.length:0;
+  },[day,session]);
+
+  // Benachrichtigung (best effort, nur bei geöffneter App)
+  useEffect(()=>{
+    if(!state.settings.notif) return;
+    const t=setInterval(()=>{
+      const h=new Date().getHours();
+      if(h>=18 && state.settings.lastNotif!==iso && !getDay(state,iso).supps.creatine){
+        if(window.Notification && Notification.permission==="granted"){
+          new Notification("FitPlan",{body:"Kreatin heute noch nicht abgehakt 💊"});
+          update(s=>{s.settings.lastNotif=iso;});
+        }
+      }
+    },60000);
+    return ()=>clearInterval(t);
+  },[state.settings.notif,state.settings.lastNotif]);
+
+  const ctx={state,setState,update,updDay,iso,week,block,session,missed,dayScore,setTab};
+
+  return (
+    <div className="min-h-screen pb-24" style={{maxWidth:520,margin:"0 auto"}}>
+      <TopBar state={state} update={update}/>
+      <main className="px-4">
+        {tab==="home" && <Dashboard {...ctx}/>}
+        {tab==="train" && <Training {...ctx}/>}
+        {tab==="progress" && <Progress {...ctx}/>}
+        {tab==="nutri" && <Nutrition {...ctx}/>}
+        {tab==="supps" && <Supps {...ctx}/>}
+      </main>
+      <BottomNav tab={tab} setTab={setTab}/>
+    </div>
+  );
+}
+function structuredCloneSafe(o){ return JSON.parse(JSON.stringify(o)); }
+
+/* ============================ TOP BAR ============================ */
+function TopBar({state,update}){
+  const [menu,setMenu]=useState(false);
+  const fileRef=useRef();
+  const exportData=()=>{ const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="fitplan-backup.json"; a.click(); };
+  const importData=(e)=>{ const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ try{ const d=JSON.parse(r.result); update(s=>{ Object.assign(s,d); }); alert("Daten importiert ✓"); }catch(err){ alert("Datei konnte nicht gelesen werden."); } }; r.readAsText(f); };
+  const reset=()=>{ if(confirm("Alle Daten zurücksetzen? Das kann nicht rückgängig gemacht werden.")){ update(s=>{ const d=defaultState(); Object.keys(s).forEach(k=>delete s[k]); Object.assign(s,d); }); } };
+  const toggleTheme=()=> update(s=>{ s.settings.theme = s.settings.theme==="dark"?"light":"dark"; });
+  return (
+    <header className="sticky top-0 z-20 px-4 pt-4 pb-3 flex items-center justify-between" style={{background:"var(--bg)"}}>
+      <div className="flex items-center gap-2">
+        <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black" style={{background:"var(--accent)",color:"#0b0b0d"}}>ES</div>
+        <div><div className="font-bold leading-tight">FitPlan</div><div className="text-xs" style={{color:"var(--muted)"}}>Es Lebe Der Sport</div></div>
+      </div>
+      <div className="relative">
+        <button onClick={()=>setMenu(m=>!m)} className="w-9 h-9 rounded-xl flex items-center justify-center active:scale-90" style={{background:"var(--surface2)"}} aria-label="Menü">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </button>
+        {menu && <div className="absolute right-0 mt-2 w-52 rounded-2xl border p-1.5 z-30 fade-in" style={{background:"var(--surface)",borderColor:"var(--border)"}} onMouseLeave={()=>setMenu(false)}>
+          {[["Hell/Dunkel",toggleTheme],["Daten exportieren",exportData],["Daten importieren",()=>fileRef.current.click()],["Zurücksetzen",reset]].map(([l,fn])=>(
+            <button key={l} onClick={()=>{fn();if(l!=="Daten importieren")setMenu(false);}} className="w-full text-left px-3 py-2.5 rounded-xl text-sm hover:opacity-80" style={{color:l==="Zurücksetzen"?"#ff5b5b":"var(--text)"}}>{l}</button>
+          ))}
+          <input ref={fileRef} type="file" accept="application/json" onChange={importData} className="hidden"/>
+        </div>}
+      </div>
+    </header>
+  );
+}
+
+/* ============================ DASHBOARD ============================ */
+function Dashboard({state,update,updDay,iso,week,block,session,missed,dayScore,setTab}){
+  const day=getDay(state,iso);
+  const nutri=useMemo(()=> sumNutrition(day),[day]);
+  const sesName = session==="run"?"Lauftag": session?PLAN.workouts[session].name:"Ruhetag";
+  const doneCount = session && session!=="run" ? PLAN.workouts[session].exercises.filter(e=>day.ex[e.id]&&day.ex[e.id].done).length : 0;
+  const totalCount = session && session!=="run" ? PLAN.workouts[session].exercises.length : 0;
+
+  return (
+    <div className="space-y-4 fade-in">
+      <div className="pt-1">
+        <div className="text-2xl font-extrabold tracking-tight">Servus, Max 👋</div>
+        <div className="text-sm" style={{color:"var(--muted)"}}>{fmtDate(iso)} · Woche {week}/12</div>
+      </div>
+
+      {missed.length>0 && (
+        <Card className="!p-3 flex items-center gap-3" >
+          <div className="text-sm flex-1"><span className="font-semibold" style={{color:"var(--accent)"}}>{missed.length} verpasste Einheit{missed.length>1?"en":""}</span> <span style={{color:"var(--muted)"}}>– sichtbar unter „Training".</span></div>
+          <button onClick={()=>setTab("train")} className="text-sm font-semibold px-3 py-1.5 rounded-xl" style={{background:"var(--accent-soft)",color:"var(--accent)"}}>Ansehen</button>
+        </Card>
+      )}
+
+      <Card className="flex items-center gap-5">
+        <Ring pct={dayScore}><div className="text-2xl font-extrabold tnum">{Math.round(dayScore*100)}%</div><div className="text-[11px]" style={{color:"var(--muted)"}}>heute</div></Ring>
+        <div className="flex-1">
+          <Pill>{block.name.split("·")[0]}</Pill>
+          <div className="mt-2 text-lg font-bold leading-tight">{sesName}</div>
+          <div className="text-sm" style={{color:"var(--muted)"}}>{block.rir} · {session&&session!=="run"?`${doneCount}/${totalCount} Übungen`:"Regeneration & Cardio"}</div>
+          {session && session!=="run" && <button onClick={()=>setTab("train")} className="mt-3 w-full py-2.5 rounded-2xl font-bold active:scale-[.98]" style={{background:"var(--accent)",color:"#0b0b0d"}}>Training öffnen →</button>}
+        </div>
+      </Card>
+
+      {session==="run" && (
+        <Card className="flex items-center justify-between">
+          <div className="flex-1 pr-3"><div className="font-bold">{PLAN.run.label}</div><div className="text-sm mt-0.5" style={{color:"var(--muted)"}}>{PLAN.run.alt}</div></div>
+          <CheckButton checked={day.run} onClick={()=>updDay(iso,d=>{d.run=!d.run;})} size={34}/>
+        </Card>
+      )}
+
+      <Card>
+        <div className="flex items-center justify-between mb-3"><div className="font-bold">Ernährung heute</div><Pill tone="good">{Math.round(nutri.kcal)} kcal</Pill></div>
+        <div className="space-y-3">
+          <Bar label="Kalorien" value={nutri.kcal} target={PLAN.nutrition.targets.kcal} unit=" kcal"/>
+          <Bar label="Protein" value={nutri.p} target={PLAN.nutrition.targets.protein} unit=" g"/>
+          <Bar label="Fett" value={nutri.f} target={PLAN.nutrition.targets.fat} unit=" g"/>
+          <Bar label="Kohlenhydrate" value={nutri.c} target={PLAN.nutrition.targets.carbs} unit=" g"/>
+        </div>
+        <button onClick={()=>setTab("nutri")} className="mt-3 w-full py-2.5 rounded-2xl text-sm font-semibold" style={{background:"var(--surface2)"}}>Mahlzeiten abhaken</button>
+      </Card>
+
+      <Card className="flex items-center gap-3">
+        <div className="flex-1"><div className="font-bold">Kreatin</div><div className="text-sm" style={{color:"var(--muted)"}}>3–5 g täglich</div></div>
+        <CheckButton checked={!!day.supps.creatine} onClick={()=>updDay(iso,d=>{d.supps.creatine=!d.supps.creatine;})} size={34}/>
+      </Card>
+
+      <ProgramControl state={state} update={update} week={week}/>
+    </div>
+  );
+}
+
+function ProgramControl({state,update,week}){
+  return (
+    <Card className="!p-3">
+      <div className="flex items-center justify-between gap-2">
+        <div className="text-sm"><div className="font-semibold">Programmwoche</div><div style={{color:"var(--muted)"}}>{state.weekOverride?"manuell":"automatisch nach Startdatum"}</div></div>
+        <div className="flex items-center gap-1">
+          <button onClick={()=>update(s=>{s.weekOverride=Math.max(1,(s.weekOverride||week)-1);})} className="w-8 h-8 rounded-lg font-bold" style={{background:"var(--surface2)"}}>−</button>
+          <div className="w-8 text-center font-bold tnum">{week}</div>
+          <button onClick={()=>update(s=>{s.weekOverride=Math.min(12,(s.weekOverride||week)+1);})} className="w-8 h-8 rounded-lg font-bold" style={{background:"var(--surface2)"}}>+</button>
+        </div>
+      </div>
+      <div className="flex gap-2 mt-2">
+        <button onClick={()=>update(s=>{s.startDate=todayISO();s.weekOverride=null;})} className="flex-1 text-xs py-2 rounded-xl" style={{background:"var(--surface2)"}}>Programm heute starten</button>
+        <button onClick={()=>update(s=>{s.weekOverride=null;})} className="flex-1 text-xs py-2 rounded-xl" style={{background:"var(--surface2)"}}>Auto-Woche</button>
+      </div>
+    </Card>
+  );
+}
+
+/* ============================ TRAINING ============================ */
+function Training({state,update,updDay,iso,week,block,session,missed}){
+  const active = session && session!=="run" ? session : "A";
+  const [sel,setSel]=useState(active);
+  const day=getDay(state,iso);
+  const wo=PLAN.workouts[sel];
+  const isToday = effSession(state,iso)===sel;
+
+  const setType=(t)=>{ setSel(t); update(s=>{ if(!s.days[iso]) s.days[iso]=blankDay(); s.days[iso].overrideType=t; }); };
+  const toggleEx=(id)=> updDay(iso,d=>{ if(!d.ex[id]) d.ex[id]={w:"",r:"",done:false}; d.ex[id].done=!d.ex[id].done; });
+  const setField=(id,k,v)=> updDay(iso,d=>{ if(!d.ex[id]) d.ex[id]={w:"",r:"",done:false}; d.ex[id][k]=v; });
+  const finish=()=> updDay(iso,d=>{ wo.exercises.forEach(e=>{ if(!d.ex[e.id]) d.ex[e.id]={w:"",r:"",done:true}; else d.ex[e.id].done=true; }); d.done=true; });
+
+  const doneN=wo.exercises.filter(e=>day.ex[e.id]&&day.ex[e.id].done).length;
+
+  return (
+    <div className="space-y-4 fade-in">
+      <div className="pt-1 flex items-end justify-between">
+        <div><div className="text-2xl font-extrabold tracking-tight">Training</div><div className="text-sm" style={{color:"var(--muted)"}}>Woche {week} · {block.rir}</div></div>
+      </div>
+
+      <div className="flex gap-2">
+        {["A","B","C"].map(t=>(
+          <button key={t} onClick={()=>setType(t)} className="flex-1 py-3 rounded-2xl font-bold transition-all"
+            style={{background: sel===t?"var(--accent)":"var(--surface)", color:sel===t?"#0b0b0d":"var(--text)", border:`1px solid ${sel===t?"transparent":"var(--border)"}`}}>
+            {t}{effSession(state,iso)===t && sel!==t?" •":""}
+          </button>
+        ))}
+      </div>
+      <div className="text-xs -mt-2" style={{color:"var(--muted)"}}>{isToday?"Heutige Einheit":"Als heutige Einheit gewählt (Plan passt sich an)"} · {wo.name} · {doneN}/{wo.exercises.length}</div>
+
+      {missed.length>0 && <MissedList state={state} update={update} updDay={updDay} missed={missed}/>}
+
+      <Section title="Aufwärmen & Mobility">
+        {PLAN.warmup.map(w=>(
+          <Row key={w.id} checked={!!day.warmup[w.id]} onToggle={()=>updDay(iso,d=>{d.warmup[w.id]=!d.warmup[w.id];})}>
+            <span className="text-sm">{w.label}</span>
+          </Row>
+        ))}
+      </Section>
+
+      <Section title="Übungen">
+        {wo.exercises.map((e,i)=>(
+          <ExerciseRow key={e.id} idx={i+1} ex={e} block={block} data={day.ex[e.id]||{}}
+            onToggle={()=>toggleEx(e.id)} onField={(k,v)=>setField(e.id,k,v)}/>
+        ))}
+      </Section>
+
+      <Section title="Cool-down">
+        {PLAN.cooldown.map(c=>(
+          <Row key={c.id} checked={!!day.cooldown[c.id]} onToggle={()=>updDay(iso,d=>{d.cooldown[c.id]=!d.cooldown[c.id];})}>
+            <span className="text-sm">{c.label}</span>
+          </Row>
+        ))}
+      </Section>
+
+      <button onClick={finish} className="w-full py-4 rounded-2xl font-extrabold text-lg active:scale-[.98]" style={{background:day.done?"var(--good)":"var(--accent)",color:"#0b0b0d"}}>
+        {day.done?"✓ Training abgeschlossen":"Training abschließen"}
+      </button>
+    </div>
+  );
+}
+
+function ExerciseRow({idx,ex,block,data,onToggle,onField}){
+  const [open,setOpen]=useState(false);
+  return (
+    <div className="rounded-2xl p-3" style={{background:"var(--surface2)"}}>
+      <div className="flex items-start gap-3">
+        <CheckButton checked={!!data.done} onClick={onToggle}/>
+        <div className="flex-1 min-w-0" onClick={()=>setOpen(o=>!o)}>
+          <div className="font-semibold leading-tight">{idx}. {ex.name}</div>
+          <div className="text-xs mt-0.5 tnum" style={{color:"var(--muted)"}}>{ex.sets} × {ex.reps} · {block.rir} · Pause {ex.pause}</div>
+          {open && <div className="text-xs mt-1.5" style={{color:"var(--muted)"}}>💡 {ex.detail}</div>}
+        </div>
+      </div>
+      <div className="flex gap-2 mt-2.5 pl-11">
+        <LabeledInput label="kg" value={data.w||""} onChange={v=>onField("w",v)}/>
+        <LabeledInput label="Wdh" value={data.r||""} onChange={v=>onField("r",v)}/>
+      </div>
+    </div>
+  );
+}
+function LabeledInput({label,value,onChange}){
+  return (
+    <div className="flex-1 flex items-center gap-2 rounded-xl px-3 py-2" style={{background:"var(--surface)",border:"1px solid var(--border)"}}>
+      <span className="text-xs font-semibold" style={{color:"var(--muted)"}}>{label}</span>
+      <input type="number" inputMode="decimal" value={value} onChange={e=>onChange(e.target.value)} placeholder="—"
+        className="w-full bg-transparent outline-none text-base font-bold tnum" style={{color:"var(--text)"}}/>
+    </div>
+  );
+}
+
+function MissedList({state,update,updDay,missed}){
+  return (
+    <Section title="Verpasst">
+      {missed.map(m=>(
+        <div key={m.date} className="rounded-2xl p-3 flex items-center gap-3" style={{background:"var(--surface2)"}}>
+          <div className="flex-1"><div className="font-semibold text-sm">{m.type==="run"?"Lauftag":PLAN.workouts[m.type].name}</div><div className="text-xs" style={{color:"var(--muted)"}}>{fmtDate(m.date)}</div></div>
+          <button onClick={()=>updDay(m.date,d=>{ if(m.type==="run") d.run=true; else d.done=true; })} className="text-xs font-semibold px-3 py-2 rounded-xl" style={{background:"var(--good-soft)",color:"var(--good)"}}>Erledigt</button>
+          <button onClick={()=>update(s=>{ if(!s.days[m.date]) s.days[m.date]=blankDay(); s.days[m.date].overrideType="rest"; })} className="text-xs px-3 py-2 rounded-xl" style={{background:"var(--surface)"}}>Streichen</button>
+        </div>
+      ))}
+    </Section>
+  );
+}
+
+const Section=({title,children})=>(
+  <div><div className="text-sm font-bold mb-2 px-1" style={{color:"var(--muted)"}}>{title}</div><div className="space-y-2">{children}</div></div>
+);
+const Row=({checked,onToggle,children})=>(
+  <div className="rounded-2xl p-3 flex items-center gap-3" style={{background:"var(--surface2)"}}>
+    <CheckButton checked={checked} onClick={onToggle}/><div className="flex-1">{children}</div>
+  </div>
+);
+
+/* ============================ PROGRESS ============================ */
+function Progress({state}){
+  const allEx=useMemo(()=>{ const m=new Map(); Object.values(PLAN.workouts).forEach(w=>w.exercises.forEach(e=>m.set(e.id,e.name))); return m; },[]);
+  const [exId,setExId]=useState("a1");
+  const history=useMemo(()=>{
+    const out=[]; Object.entries(state.days).forEach(([d,day])=>{ const e=day.ex&&day.ex[exId]; if(e&&e.w!==""&&e.w!=null&&!isNaN(parseFloat(e.w))) out.push({date:d,w:parseFloat(e.w),r:e.r}); });
+    out.sort((a,b)=>a.date<b.date?-1:1); return out;
+  },[state,exId]);
+  const points=history.map(h=>({y:h.w}));
+  const improve = history.length>=2 ? history[history.length-1].w-history[0].w : 0;
+
+  const totalWorkouts=Object.values(state.days).filter(d=>d.done).length;
+  const totalRuns=Object.values(state.days).filter(d=>d.run).length;
+
+  return (
+    <div className="space-y-4 fade-in">
+      <div className="pt-1"><div className="text-2xl font-extrabold tracking-tight">Fortschritt</div><div className="text-sm" style={{color:"var(--muted)"}}>Kraftentwicklung & Historie</div></div>
+
+      <div className="grid grid-cols-2 gap-3">
+        <Card className="!p-4 text-center"><div className="text-3xl font-extrabold tnum">{totalWorkouts}</div><div className="text-xs" style={{color:"var(--muted)"}}>Trainings absolviert</div></Card>
+        <Card className="!p-4 text-center"><div className="text-3xl font-extrabold tnum">{totalRuns}</div><div className="text-xs" style={{color:"var(--muted)"}}>Läufe absolviert</div></Card>
+      </div>
+
+      <Card>
+        <div className="font-bold mb-2">Kraftverlauf</div>
+        <select value={exId} onChange={e=>setExId(e.target.value)} className="w-full rounded-xl px-3 py-2.5 text-sm font-medium mb-3 outline-none" style={{background:"var(--surface2)",color:"var(--text)",border:"1px solid var(--border)"}}>
+          {[...allEx.entries()].map(([id,name])=><option key={id} value={id}>{name}</option>)}
+        </select>
+        <LineChart points={points}/>
+        {history.length>=2 && <div className="mt-2 text-sm text-center">Veränderung: <span className="font-bold" style={{color:improve>=0?"var(--good)":"#ff5b5b"}}>{improve>=0?"+":""}{improve} kg</span></div>}
+      </Card>
+
+      <Card>
+        <div className="font-bold mb-2">Letzte Einträge</div>
+        {history.length===0 ? <div className="text-sm py-4 text-center" style={{color:"var(--muted)"}}>Noch keine Einträge.</div> :
+          <div className="space-y-1.5">{[...history].reverse().slice(0,8).map((h,i)=>(
+            <div key={i} className="flex justify-between text-sm py-1.5 px-1 rounded-lg"><span style={{color:"var(--muted)"}}>{fmtDate(h.date)}</span><span className="font-bold tnum">{h.w} kg{h.r?` × ${h.r}`:""}</span></div>
+          ))}</div>}
+      </Card>
+    </div>
+  );
+}
+
+/* ============================ NUTRITION ============================ */
+function sumNutrition(day){ let kcal=0,p=0,f=0,c=0; PLAN.nutrition.meals.forEach(m=>{ if(day.meals&&day.meals[m.id]){ kcal+=m.kcal;p+=m.p;f+=m.f;c+=m.c; } }); return {kcal,p,f,c}; }
+
+function Nutrition({state,updDay,iso}){
+  const day=getDay(state,iso); const n=sumNutrition(day); const t=PLAN.nutrition.targets;
+  return (
+    <div className="space-y-4 fade-in">
+      <div className="pt-1"><div className="text-2xl font-extrabold tracking-tight">Ernährung</div><div className="text-sm" style={{color:"var(--muted)"}}>Leanbulk · {fmtDate(iso)}</div></div>
+      <Card className="space-y-3">
+        <Bar label="Kalorien" value={n.kcal} target={t.kcal} unit=" kcal"/>
+        <Bar label="Protein" value={n.p} target={t.protein} unit=" g"/>
+        <Bar label="Fett" value={n.f} target={t.fat} unit=" g"/>
+        <Bar label="Kohlenhydrate" value={n.c} target={t.carbs} unit=" g"/>
+        <div className="text-xs pt-1" style={{color:"var(--muted)"}}>Mahlzeiten sind Beispiele – abhaken zählt grob mit. Portionen an deine Zielwerte anpassen.</div>
+      </Card>
+      <Section title="Mahlzeiten">
+        {PLAN.nutrition.meals.map(m=>(
+          <div key={m.id} className="rounded-2xl p-3 flex items-center gap-3" style={{background:"var(--surface2)"}}>
+            <CheckButton checked={!!day.meals[m.id]} onClick={()=>updDay(iso,d=>{d.meals[m.id]=!d.meals[m.id];})}/>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2"><span className="font-bold text-sm">{m.slot}</span><span className="text-xs tnum" style={{color:"var(--muted)"}}>{m.kcal} kcal · {m.p}g P</span></div>
+              <div className="text-xs mt-0.5 truncate" style={{color:"var(--muted)"}}>{m.food}</div>
+            </div>
+          </div>
+        ))}
+      </Section>
+    </div>
+  );
+}
+
+/* ============================ SUPPLEMENTS ============================ */
+function Supps({state,update,updDay,iso}){
+  const day=getDay(state,iso);
+  const enableNotif=async()=>{ if(!window.Notification){ alert("Benachrichtigungen werden in diesem Browser nicht unterstützt."); return;} const p=await Notification.requestPermission(); update(s=>{ s.settings.notif = p==="granted"; }); if(p!=="granted") alert("Erinnerungen blockiert – im Browser erlauben."); };
+  return (
+    <div className="space-y-4 fade-in">
+      <div className="pt-1"><div className="text-2xl font-extrabold tracking-tight">Supplemente</div><div className="text-sm" style={{color:"var(--muted)"}}>{fmtDate(iso)}</div></div>
+      <Section title="Heute">
+        {PLAN.supplements.map(s=>(
+          <div key={s.id} className="rounded-2xl p-3 flex items-center gap-3" style={{background:"var(--surface2)"}}>
+            <div className="flex-1 min-w-0"><div className="font-bold text-sm">{s.name} <span className="font-normal tnum" style={{color:"var(--muted)"}}>· {s.dose}</span></div><div className="text-xs mt-0.5" style={{color:"var(--muted)"}}>{s.note}</div></div>
+            {s.type==="count" ? (
+              <div className="flex items-center gap-1.5">
+                <button onClick={()=>updDay(iso,d=>{d.supps[s.id]=Math.max(0,(d.supps[s.id]||0)-1);})} className="w-8 h-8 rounded-lg font-bold" style={{background:"var(--surface)"}}>−</button>
+                <div className="w-6 text-center font-bold tnum">{day.supps[s.id]||0}</div>
+                <button onClick={()=>updDay(iso,d=>{d.supps[s.id]=(d.supps[s.id]||0)+1;})} className="w-8 h-8 rounded-lg font-bold" style={{background:"var(--accent)",color:"#0b0b0d"}}>+</button>
+              </div>
+            ) : (
+              <CheckButton checked={!!day.supps[s.id]} onClick={()=>updDay(iso,d=>{d.supps[s.id]=!d.supps[s.id];})} size={34}/>
+            )}
+          </div>
+        ))}
+      </Section>
+      <Card className="flex items-center gap-3">
+        <div className="flex-1"><div className="font-bold text-sm">Tägliche Erinnerung</div><div className="text-xs" style={{color:"var(--muted)"}}>Hinweis am Abend, falls Kreatin offen (nur bei geöffneter App)</div></div>
+        <button onClick={enableNotif} className="text-sm font-semibold px-3 py-2 rounded-xl" style={{background:state.settings.notif?"var(--good-soft)":"var(--accent-soft)",color:state.settings.notif?"var(--good)":"var(--accent)"}}>{state.settings.notif?"Aktiv ✓":"Aktivieren"}</button>
+      </Card>
+    </div>
+  );
+}
+
+/* ============================ BOTTOM NAV ============================ */
+function BottomNav({tab,setTab}){
+  const items=[["home","Heute","home"],["train","Training","dumbbell"],["progress","Fortschritt","chart"],["nutri","Ernährung","fork"],["supps","Supps","pill"]];
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 z-20 border-t" style={{background:"var(--surface)",borderColor:"var(--border)",paddingBottom:"env(safe-area-inset-bottom)"}}>
+      <div className="flex" style={{maxWidth:520,margin:"0 auto"}}>
+        {items.map(([k,label,icon])=>(
+          <button key={k} onClick={()=>setTab(k)} className="flex-1 flex flex-col items-center gap-1 py-2.5 active:scale-95 transition-transform">
+            <Icon name={icon} size={24} active={tab===k}/>
+            <span className="text-[10px] font-semibold" style={{color:tab===k?"var(--accent)":"var(--muted)"}}>{label}</span>
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>
